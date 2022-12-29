@@ -161,6 +161,268 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
+            <a href="/title/" class="post-title-link" itemprop="url">创建iOS发布证书并配置文字和CallKit免后台推送权限</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-29 10:54:32 / Modified: 12:12:39" itemprop="dateCreated datePublished" datetime="2022-12-29T10:54:32+08:00">2022-12-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>先登陆开发者页面</li>
+</ul>
+<p>![image-20221229114317226](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229114317226.png)</p>
+<ul>
+<li>创建一本Distribution证书 <del>Apple Distribution和iOS Distribution (App Store and Ad Hoc)都可以</del></li>
+</ul>
+<p>![image-20221229114828438](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229114828438.png)</p>
+<ul>
+<li>上传你本机的Certificate Signing Request</li>
+</ul>
+<p>![image-20221229115421345](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229115421345.png)</p>
+<ul>
+<li>下载证书</li>
+<li>导出为p12备用</li>
+</ul>
+<p>![image-20221229115624942](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229115624942.png)</p>
+<ul>
+<li>在标识符处新建一个带推送的Identifiers</li>
+</ul>
+<p>![image-20221229115843451](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229115843451.png)</p>
+<p>![image-20221229115901454](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229115901454.png)</p>
+<p>![image-20221229115918495](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229115918495.png)</p>
+<ul>
+<li><p>这里随便填  笔者就创建一个com.happaa.demo</p>
+</li>
+<li><p>![image-20221229120039454](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120039454.png)</p>
+</li>
+<li><p>记得划到下面勾选 Push Notifications</p>
+</li>
+</ul>
+<p>![image-20221229120123319](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120123319.png)</p>
+<p>continue register</p>
+<p>![image-20221229120230154](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120230154.png)</p>
+<ul>
+<li><p>再回到Certificates</p>
+</li>
+<li><p>还是点新建的按钮</p>
+</li>
+<li><p>勾选VoIP Services Certificate</p>
+<p>![image-20221229120447624](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120447624.png)</p>
+</li>
+<li><p>continue</p>
+</li>
+<li><p>选择刚刚创建的Identifiers</p>
+<p>![image-20221229120555613](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120555613.png)</p>
+</li>
+<li><p>continue</p>
+</li>
+<li><p>再次上传Certificate Signing Request</p>
+<p>![image-20221229120737989](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120737989.png)</p>
+</li>
+<li><p>continue</p>
+<p>![image-20221229120817093](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120817093.png)</p>
+</li>
+<li><p>这里不需要download</p>
+</li>
+<li><p>来到Profiles</p>
+</li>
+<li><p>新建</p>
+</li>
+<li><p>选择Distribution</p>
+<ul>
+<li>Ad Hoc</li>
+</ul>
+<p>![image-20221229120921225](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229120921225.png)</p>
+</li>
+<li><p>选择刚刚配置了权限的Identifiers</p>
+</li>
+</ul>
+<p>![image-20221229121018795](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229121018795.png)</p>
+<ul>
+<li>选择distribution证书</li>
+</ul>
+<p>![image-20221229121141548](&#x2F;Users&#x2F;happa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221229121141548.png)</p>
+<ul>
+<li>勾选设备</li>
+<li>命名</li>
+<li>下载配置文件</li>
+<li>最后就是配合p12签名啦</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/title/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Happa">
+      <meta itemprop="description" content="Happa会时不时写一些Happa正在研究的 有趣的内容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HappaBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/title/" class="post-title-link" itemprop="url">macOS安装pip3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-29 10:50:19 / Modified: 10:52:51" itemprop="dateCreated datePublished" datetime="2022-12-29T10:50:19+08:00">2022-12-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 get-pip.py</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/title/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Happa">
+      <meta itemprop="description" content="Happa会时不时写一些Happa正在研究的 有趣的内容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HappaBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/title/" class="post-title-link" itemprop="url">Termius.app已损坏，无法打开您应该将它移到废纸篓</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-29 10:47:44 / Modified: 10:49:20" itemprop="dateCreated datePublished" datetime="2022-12-29T10:47:44+08:00">2022-12-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -d com.apple.quarantine /Applications/*.app</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/title/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Happa">
+      <meta itemprop="description" content="Happa会时不时写一些Happa正在研究的 有趣的内容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HappaBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
             <a href="/title/" class="post-title-link" itemprop="url">旧版Xcode支持iOS16</a>
         </h2>
 
@@ -601,7 +863,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -635,7 +897,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Happa</span>
 </div>
-  
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
