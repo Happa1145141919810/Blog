@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HappaBlog</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-12-29T04:25:30.088Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Happa</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创建iOS发布证书并配置文字和CallKit免后台推送权限</title>
+    <link href="http://example.com/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/"/>
+    <id>http://example.com/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/</id>
+    <published>2022-12-29T02:54:32.000Z</published>
+    <updated>2022-12-29T04:25:30.088Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>先登陆开发者页面</li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229114317226.png" alt="image-20221229114317226"></p><ul><li>创建一本Distribution证书 <del>Apple Distribution和iOS Distribution (App Store and Ad Hoc)都可以</del></li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229114828438.png" alt="image-20221229114828438"></p><ul><li>上传你本机的Certificate Signing Request</li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229115421345.png" alt="image-20221229115421345"></p><ul><li>下载证书</li><li>导出为p12备用</li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229115624942.png" alt="image-20221229115624942"></p><ul><li>在标识符处新建一个带推送的Identifiers</li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229115843451.png" alt="image-20221229115843451"></p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229115901454.png" alt="image-20221229115901454"></p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229115918495.png" alt="image-20221229115918495"></p><ul><li><p>这里随便填  笔者就创建一个com.happaa.demo</p></li><li><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120039454.png" alt="image-20221229120039454"></p></li><li><p>记得划到下面勾选 Push Notifications</p></li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120123319.png" alt="image-20221229120123319"></p><p>continue register</p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120230154.png" alt="image-20221229120230154"></p><ul><li><p>再回到Certificates</p></li><li><p>还是点新建的按钮</p></li><li><p>勾选VoIP Services Certificate</p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120447624.png" alt="image-20221229120447624"></p></li><li><p>continue</p></li><li><p>选择刚刚创建的Identifiers</p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120555613.png" alt="image-20221229120555613"></p></li><li><p>continue</p></li><li><p>再次上传Certificate Signing Request</p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120737989.png" alt="image-20221229120737989"></p></li><li><p>continue</p><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120817093.png" alt="image-20221229120817093"></p></li><li><p>这里不需要download</p></li><li><p>来到Profiles</p></li><li><p>新建</p></li><li><p>选择Distribution</p><ul><li>Ad Hoc</li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229120921225.png" alt="image-20221229120921225"></p></li><li><p>选择刚刚配置了权限的Identifiers</p></li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229121018795.png" alt="image-20221229121018795"></p><ul><li>选择distribution证书</li></ul><p><img src="https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/image-20221229121141548.png" alt="image-20221229121141548"></p><ul><li>勾选设备</li><li>命名</li><li>下载配置文件</li><li>最后就是配合p12签名啦</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;先登陆开发者页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.happaa.com/images/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>macOS安装pip3</title>
+    <link href="http://example.com/macOS%E5%AE%89%E8%A3%85pip3/"/>
+    <id>http://example.com/macOS%E5%AE%89%E8%A3%85pip3/</id>
+    <published>2022-12-29T02:50:19.000Z</published>
+    <updated>2022-12-29T02:52:51.561Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 get-pip.py</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Termius.app已损坏，无法打开您应该将它移到废纸篓</title>
+    <link href="http://example.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
+    <id>http://example.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
+    <published>2022-12-29T02:47:44.000Z</published>
+    <updated>2022-12-29T02:49:20.794Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -d com.apple.quarantine /Applications/*.app</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>旧版Xcode支持iOS16</title>
+    <link href="http://example.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/"/>
+    <id>http://example.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/</id>
+    <published>2022-12-28T10:32:11.000Z</published>
+    <updated>2022-12-28T10:36:52.835Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/RayJiang16/iOSDeviceSupport">https://github.com/RayJiang16/iOSDeviceSupport</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O https://github.com/RayJiang16/iOSDeviceSupport/raw/main/download.sh</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh download.sh 16.0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/RayJiang16/iOSDeviceSupport&quot;&gt;https://github.com/RayJiang16/iOSDeviceSupport&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>安装EasyDev</title>
+    <link href="http://example.com/%E5%AE%89%E8%A3%85EasyDev/"/>
+    <id>http://example.com/%E5%AE%89%E8%A3%85EasyDev/</id>
+    <published>2022-12-27T04:34:33.000Z</published>
+    <updated>2022-12-27T04:36:02.303Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone --recursive https://github.com/lemon4ex/EasyDev.git /opt/EasyDev</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/EasyDev/bin</span><br><span class="line">chmod +x ed-install</span><br><span class="line">./ed-install</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>安装MonkeyDev</title>
+    <link href="http://example.com/%E5%AE%89%E8%A3%85MonkeyDev/"/>
+    <id>http://example.com/%E5%AE%89%E8%A3%85MonkeyDev/</id>
+    <published>2022-12-27T04:31:56.000Z</published>
+    <updated>2022-12-27T04:34:16.165Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、选择指定的Xcode进行安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select -s /Applications/Xcode-beta.app</span><br></pre></td></tr></table></figure><p>2、默认安装的Xcode</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select -p</span><br></pre></td></tr></table></figure><p>3、执行安装命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install)&quot;</span><br></pre></td></tr></table></figure><p>4、卸载命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall)&quot;</span><br></pre></td></tr></table></figure><p>5、更新命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update)&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1、选择指定的Xcode进行安装&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>安装ldid</title>
+    <link href="http://example.com/%E5%AE%89%E8%A3%85ldid/"/>
+    <id>http://example.com/%E5%AE%89%E8%A3%85ldid/</id>
+    <published>2022-12-27T04:29:53.000Z</published>
+    <updated>2022-12-27T04:31:20.105Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ldid</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>theos的配置</title>
+    <link href="http://example.com/theos%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/theos%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
+    <published>2022-12-27T04:27:17.000Z</published>
+    <updated>2022-12-27T04:27:55.200Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="theos的配置"><a href="#theos的配置" class="headerlink" title="theos的配置"></a>theos的配置</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export THEOS=/opt/theos</span><br></pre></td></tr></table></figure><p>下载theos到指定的目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/theos/theos.git $THEOS </span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;theos的配置&quot;&gt;&lt;a href=&quot;#theos的配置&quot; class=&quot;headerlink&quot; title=&quot;theos的配置&quot;&gt;&lt;/a&gt;theos的配置&lt;/h1&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/hello-world/"/>
+    <id>http://example.com/hello-world/</id>
+    <published>2022-12-27T04:15:03.701Z</published>
+    <updated>2022-12-31T09:07:50.840Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
