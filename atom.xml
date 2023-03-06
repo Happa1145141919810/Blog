@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-01T04:48:28.812Z</updated>
+  <updated>2023-03-06T01:57:20.274Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,27 +17,160 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>使用青龙面板实现阿里云盘自动签到</title>
+    <link href="http://example.com/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/"/>
+    <id>http://example.com/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/</id>
+    <published>2023-03-06T01:35:24.000Z</published>
+    <updated>2023-03-06T01:57:20.274Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.先在<a href="https://github.com/Happa1145141919810/aliYunPanCheckIn">GitHub仓库</a>下载源码</p><p>2.打开script.js</p><p>填入telegrambot API令牌和群组ID</p><p>阿里云盘刷新令牌</p><p>保存</p><p><img src="https://blog.happaa.com/img/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/1.png" alt="1"></p><p>3.打开青龙面板并登录</p><p>要先下载依赖，依赖管理 - NodeJs - 新建依赖 - 名称输入：node-fetch@2<br>node-fetch@2 只是一个调用http的，如果实在版本差异导致调用失败的，可以换成其他，比如 axios</p><p>在脚本管理中上传script.js</p><p>在定时任务里新建任务 命令是 task script.js</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1.先在&lt;a href=&quot;https://github.com/Happa1145141919810/aliYunPanCheckIn&quot;&gt;GitHub仓库&lt;/a&gt;下载源码&lt;/p&gt;
+&lt;p&gt;2.打开script.js&lt;/p&gt;
+&lt;p&gt;填入telegrambot API令牌和群组I</summary>
+      
+    
+    
+    
+    <category term="vps那些事" scheme="http://example.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    
+    <category term="青龙面板" scheme="http://example.com/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    
+    <category term="阿里云盘" scheme="http://example.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/"/>
+    
+    <category term="签到" scheme="http://example.com/tags/%E7%AD%BE%E5%88%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装青龙面板</title>
+    <link href="http://example.com/%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    <id>http://example.com/%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/</id>
+    <published>2023-03-06T01:01:13.000Z</published>
+    <updated>2023-03-06T01:33:50.282Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="docker-部署"><a href="#docker-部署" class="headerlink" title="docker 部署"></a>docker 部署</h3><p>1.docker 安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -sSL get.docker.com | sh</span><br></pre></td></tr></table></figure><p>2.配置国内镜像源 Configure domestic mirror sources</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br><span class="line">tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://0b27f0a81a00f3560fbdc00ddd2f99e0.mirror.swr.myhuaweicloud.com&quot;,</span><br><span class="line">    &quot;https://ypzju6vq.mirror.aliyuncs.com&quot;,</span><br><span class="line">    &quot;https://registry.docker-cn.com&quot;,</span><br><span class="line">    &quot;http://hub-mirror.c.163.com&quot;,</span><br><span class="line">    &quot;https://docker.mirrors.ustc.edu.cn&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure><p>3.启动容器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/data:/ql/data \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure><h3 id="docker-compose-部署"><a href="#docker-compose-部署" class="headerlink" title="docker-compose 部署"></a>docker-compose 部署</h3><ol><li><p>docker-compose 安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure></li><li><p>启动容器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. mkdir qinglong</span><br><span class="line">   wget https://raw.githubusercontent.com/whyour/qinglong/master/docker/docker-compose.yml</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">启动</span></span><br><span class="line"></span><br><span class="line">   docker-compose up -d</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">停止</span></span><br><span class="line"></span><br><span class="line">   docker-compose down</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>访问</p><p>打开你的浏览器，访问 http:&#x2F;&#x2F;{ip}:5700</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol><li>内置命令</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># 更新并重启青龙</span><br><span class="line">ql update                                                    </span><br><span class="line"># 运行自定义脚本extra.sh</span><br><span class="line">ql extra                                                     </span><br><span class="line"># 添加单个脚本文件</span><br><span class="line">ql raw &lt;file_url&gt;                                             </span><br><span class="line"># 添加单个仓库的指定脚本</span><br><span class="line">ql repo &lt;repo_url&gt; &lt;whitelist&gt; &lt;blacklist&gt; &lt;dependence&gt; &lt;branch&gt; &lt;extensions&gt;</span><br><span class="line"># 删除旧日志</span><br><span class="line">ql rmlog &lt;days&gt;                                              </span><br><span class="line"># 启动tg-bot</span><br><span class="line">ql bot                                                       </span><br><span class="line"># 检测青龙环境并修复</span><br><span class="line">ql check                                                     </span><br><span class="line"># 重置登录错误次数</span><br><span class="line">ql resetlet                                                  </span><br><span class="line"># 禁用两步登录</span><br><span class="line">ql resettfa                                                  </span><br><span class="line"></span><br><span class="line"># 依次执行，如果设置了随机延迟，将随机延迟一定秒数</span><br><span class="line">task &lt;file_path&gt;                                             </span><br><span class="line"># 依次执行，无论是否设置了随机延迟，均立即运行，前台会输出日，同时记录在日志文件中</span><br><span class="line">task &lt;file_path&gt; now                                         </span><br><span class="line"># 并发执行，无论是否设置了随机延迟，均立即运行，前台不产生日，直接记录在日志文件中，且可指定账号执行</span><br><span class="line">task &lt;file_path&gt; conc &lt;env_name&gt; &lt;account_number&gt;(可选的) </span><br><span class="line"># 指定账号执行，无论是否设置了随机延迟，均立即运行 </span><br><span class="line">task &lt;file_path&gt; desi &lt;env_name&gt; &lt;account_number&gt;      </span><br><span class="line"># 设置任务超时时间   </span><br><span class="line">task -m &lt;max_time&gt; &lt;file_path&gt;</span><br><span class="line"># 实时打印任务日志，创建定时任务时，不用携带此参数</span><br><span class="line">task -l &lt;file_path&gt;</span><br></pre></td></tr></table></figure><ol><li>参数说明</li></ol><ul><li>file_url: 脚本地址</li><li>repo_url: 仓库地址</li><li>whitelist: 拉取仓库时的白名单，即就是需要拉取的脚本的路径包含的字符串，多个竖线分割</li><li>blacklist: 拉取仓库时的黑名单，即就是需要拉取的脚本的路径不包含的字符串，多个竖线分割</li><li>dependence: 拉取仓库需要的依赖文件，会直接从仓库拷贝到scripts下的仓库目录，不受黑名单影响，多个竖线分割</li><li>extensions: 拉取仓库的文件后缀，多个竖线分割</li><li>branch: 拉取仓库的分支</li><li>days: 需要保留的日志的天数</li><li>file_path: 任务执行时的文件路径</li><li>env_name: 任务执行时需要并发或者指定时的环境变量名称</li><li>account_number: 任务执行时指定某个环境变量需要执行的账号序号</li><li>max_time: 超时时间，后缀”s”代表秒(默认值), “m”代表分, “h”代表小时, “d”代表天</li></ul><h2 id=""><a href="#" class="headerlink" title=""></a></h2></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;docker-部署&quot;&gt;&lt;a href=&quot;#docker-部署&quot; class=&quot;headerlink&quot; title=&quot;docker 部署&quot;&gt;&lt;/a&gt;docker 部署&lt;/h3&gt;&lt;p&gt;1.docker 安装&lt;/p&gt;
+&lt;figure class=&quot;highlight s</summary>
+      
+    
+    
+    
+    <category term="vps那些事" scheme="http://example.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    
+    <category term="青龙面板" scheme="http://example.com/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装docker容器</title>
+    <link href="http://example.com/%E5%AE%89%E8%A3%85docker%E5%AE%B9%E5%99%A8/"/>
+    <id>http://example.com/%E5%AE%89%E8%A3%85docker%E5%AE%B9%E5%99%A8/</id>
+    <published>2023-03-05T23:26:05.000Z</published>
+    <updated>2023-03-05T23:52:39.177Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h1><h2 id="使用脚本自动安装"><a href="#使用脚本自动安装" class="headerlink" title="使用脚本自动安装"></a>使用脚本自动安装</h2><p>在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，Ubuntu 系统上可以使用这套脚本安装，另外可以通过 <code>--mirror</code> 选项使用国内源进行安装：</p><blockquote><p>若你想安装测试版的 Docker, 请从 test.docker.com 获取脚本</p></blockquote><p># $ curl -fsSL test.docker.com -o get-docker.sh</p><p>$ curl -fsSL get.docker.com -o get-docker.sh</p><p>$ sudo sh get-docker.sh –mirror Aliyun</p><p># $ sudo sh get-docker.sh –mirror AzureChinaCloud</p><p>执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker 的稳定(stable)版本安装在系统中。</p><h1 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h1><h2 id="使用脚本自动安装-1"><a href="#使用脚本自动安装-1" class="headerlink" title="使用脚本自动安装"></a>使用脚本自动安装</h2><p>在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，Debian 系统上可以使用这套脚本安装，另外可以通过 <code>--mirror</code> 选项使用国内源进行安装：</p><blockquote><p>若你想安装测试版的 Docker, 请从 test.docker.com 获取脚本</p></blockquote><p># $ curl -fsSL test.docker.com -o get-docker.sh</p><p>$ curl -fsSL get.docker.com -o get-docker.sh</p><p>$ sudo sh get-docker.sh –mirror Aliyun</p><p># $ sudo sh get-docker.sh –mirror AzureChinaCloud</p><p>执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker 的稳定(stable)版本安装在系统中。</p><h2 id="启动-Docker"><a href="#启动-Docker" class="headerlink" title="启动 Docker"></a>启动 Docker</h2><p>$ sudo systemctl enable docker</p><p>$ sudo systemctl start docker</p><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>默认情况下，<code>docker</code> 命令会使用 <a href="https://en.wikipedia.org/wiki/Unix_domain_socket">Unix socket</a> 与 Docker 引擎通讯。而只有 <code>root</code> 用户和 <code>docker</code> 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 <code>root</code> 用户。因此，更好地做法是将需要使用 <code>docker</code> 的用户加入 <code>docker</code> 用户组。</p><p>建立 <code>docker</code> 组：</p><p>$ sudo groupadd docker</p><p>将当前用户加入 <code>docker</code> 组：</p><p>$ sudo usermod -aG docker $USER</p><p>退出当前终端并重新登录，进行如下测试。</p><h2 id="测试-Docker-是否安装正确"><a href="#测试-Docker-是否安装正确" class="headerlink" title="测试 Docker 是否安装正确"></a>测试 Docker 是否安装正确</h2><p>$ docker run –rm hello-world</p><p>Unable to find image ‘hello-world:latest’ locally</p><p>latest: Pulling from library&#x2F;hello-world</p><p>b8dfde127a29: Pull complete</p><p>Digest: sha256:308866a43596e83578c7dfa15e27a73011bdd402185a84c5cd7f32a88b501a24</p><p>Status: Downloaded newer image for hello-world:latest</p><p>Hello from Docker!</p><p>This message shows that your installation appears to be working correctly.</p><p>To generate this message, Docker took the following steps:</p><p> \1. The Docker client contacted the Docker daemon.</p><p> \2. The Docker daemon pulled the “hello-world” image from the Docker Hub.</p><p>​    (amd64)</p><p> \3. The Docker daemon created a new container from that image which runs the</p><p>​    executable that produces the output you are currently reading.</p><p> \4. The Docker daemon streamed that output to the Docker client, which sent it</p><p>​    to your terminal.</p><p>To try something more ambitious, you can run an Ubuntu container with:</p><p> $ docker run -it ubuntu bash</p><p>Share images, automate workflows, and more with a free Docker ID:</p><p> <a href="https://hub.docker.com/">https://hub.docker.com/</a></p><p>For more examples and ideas, visit:</p><p> <a href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p><p>若能正常输出以上信息，则说明安装成功。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Ubuntu&quot;&gt;&lt;a href=&quot;#Ubuntu&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu&quot;&gt;&lt;/a&gt;Ubuntu&lt;/h1&gt;&lt;h2 id=&quot;使用脚本自动安装&quot;&gt;&lt;a href=&quot;#使用脚本自动安装&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    <category term="vps那些事" scheme="http://example.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VPS那些事</title>
+    <link href="http://example.com/VPS%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>http://example.com/VPS%E9%82%A3%E4%BA%9B%E4%BA%8B/</id>
+    <published>2023-03-05T23:25:21.000Z</published>
+    <updated>2023-03-05T23:25:21.085Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何将节点添加到Clash</title>
+    <link href="http://example.com/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/"/>
+    <id>http://example.com/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/</id>
+    <published>2023-02-04T11:01:47.000Z</published>
+    <updated>2023-02-04T11:07:56.596Z</updated>
+    
+    <content type="html"><![CDATA[<p>打开<a href="https://sc.happaa.com/">https://sc.happaa.com/</a></p><p><img src="https://blog.happaa.com/img/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/1.png" alt="1"></p><p>把节点粘贴到订阅链接中</p><p>选择后端地址</p><p>选择远程配置</p><p><img src="https://blog.happaa.com/img/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/2.png" alt="2"></p><p>生成订阅链接</p><p>导入clash</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;打开&lt;a href=&quot;https://sc.happaa.com/&quot;&gt;https://sc.happaa.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.happaa.com/img/%E5%A6%82%E4%BD%95%E5%B0%86%E8</summary>
+      
+    
+    
+    
+    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Clash" scheme="http://example.com/tags/Clash/"/>
+    
+  </entry>
+  
+  <entry>
     <title>将Mac设置为旁路网关实现硬件连接国际互联网</title>
     <link href="http://example.com/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/"/>
     <id>http://example.com/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/</id>
     <published>2023-01-28T05:09:55.000Z</published>
-    <updated>2023-02-01T04:48:28.812Z</updated>
+    <updated>2023-03-06T01:56:19.427Z</updated>
     
-    <content type="html"><![CDATA[<p>使用clash&#x2F;surge作为代理工具并开启 设置为系统代理 和 增强模式</p><p><img src="https://blog.happaa.com//img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/1.png" alt="1"></p><p>在 系统偏好设置 网络 中点击 高级 </p><p><img src="https://blog.happaa.com//img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/2.png" alt="2"></p><p>在 TCP&#x2F;IP 中将 配置IPv4 改为 手动 </p><p>IPv4地址填写一个在本地网络网段中的IP地址</p><p>路由器填写路由器IP地址</p><p><img src="https://blog.happaa.com//img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/3.png" alt="3"></p><p>应用</p>]]></content>
+    <content type="html"><![CDATA[<p>使用clash&#x2F;surge作为代理工具并开启 设置为系统代理 和 增强模式</p><p><img src="https://blog.happaa.com/img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/1.png" alt="1"></p><p>在 系统偏好设置 网络 中点击 高级 </p><p><img src="https://blog.happaa.com//img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/2.png" alt="2"></p><p>在 TCP&#x2F;IP 中将 配置IPv4 改为 手动 </p><p>IPv4地址填写一个在本地网络网段中的IP地址</p><p>路由器填写路由器IP地址</p><p><img src="https://blog.happaa.com//img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/3.png" alt="3"></p><p>应用</p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;使用clash&amp;#x2F;surge作为代理工具并开启 设置为系统代理 和 增强模式&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://blog.happaa.com//img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81</summary>
+&lt;p&gt;&lt;img src=&quot;https://blog.happaa.com/img/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%</summary>
       
     
     
+    
+    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
     
     
     <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="Mac" scheme="http://example.com/tags/Mac/"/>
+    
+    <category term="软路由" scheme="http://example.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
     
   </entry>
   
@@ -95,7 +228,7 @@
     <link href="http://example.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
     <id>http://example.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
     <published>2022-12-29T02:47:44.000Z</published>
-    <updated>2022-12-29T02:49:20.794Z</updated>
+    <updated>2023-02-01T05:02:44.628Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -d com.apple.quarantine /Applications/*.app</span><br></pre></td></tr></table></figure>]]></content>
     
