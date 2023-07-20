@@ -3,11 +3,11 @@
   <title>HappaBlog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="http://blog.happanetwork.com/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2023-07-15T13:52:57.430Z</updated>
-  <id>http://example.com/</id>
+  <link href="http://blog.happanetwork.com/"/>
+  <updated>2023-07-19T06:00:03.441Z</updated>
+  <id>http://blog.happanetwork.com/</id>
   
   <author>
     <name>Happa</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>订阅转换服务前端后端的搭建</title>
-    <link href="http://example.com/%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>http://example.com/%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
+    <link href="http://blog.happanetwork.com/%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>http://blog.happanetwork.com/%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
     <published>2023-07-15T13:28:58.000Z</published>
-    <updated>2023-07-15T13:52:57.430Z</updated>
+    <updated>2023-07-19T06:00:03.441Z</updated>
     
     <content type="html"><![CDATA[<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><p>我们使用默认的订阅转换配置即可，因此安装后端服务非常简单。使用以下命令安装后端项目：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always -p 25500:25500 tindy2013/subconverter:latest</span><br></pre></td></tr></table></figure><p>因为该后端程序需要在计算机后台一直运行，因此采用了 <code>-d</code> 选项，并将容器将内部端口 25500 转发到主机端口 25500。<code>25500:25500</code> 前者是主机端口，后者为容器内部端口。安装结束后，我们使用以下命令验证安装是否成功</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:25500/version</span><br></pre></td></tr></table></figure><p>如果出现 <code>subconverter vx.x.x backend</code> 则说明容器已经成功运行。</p><h3 id="其它配置"><a href="#其它配置" class="headerlink" title="其它配置"></a>其它配置</h3><p>如果想要修改后端配置，可以进入容器内修改：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it sub /bin/sh</span><br></pre></td></tr></table></figure><p>由于默认文件使用的是 <code>pref.toml</code> ，编辑文件：</p><p>vi pref.toml</p><p>例如需要修改 <code>managed_config_prefix</code> 字段，输入 <code>/</code> 搜索 <code>127.0.0.1</code> 替换成自己的后端地址即可。</p><h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/CareyWang/sub-web.git</span><br></pre></td></tr></table></figure><p>然后进入该项目文件夹，修改 <code>.env</code> 文件的内容</p><p>改为你所配置的 <strong>后端项目地址</strong> 。如果采用 IP 地址的方式，则后端项目地址应为 <code>http://XXX.XXX.XXX.XXX:25500</code> (即 IP 地址 + 端口号的形式）。</p><p>&#x2F;src&#x2F;views&#x2F;Subconverter.vue      修改配置文件</p><p>然后在<strong>项目主目录</strong>下，运行以下命令构建并运行该项目：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t subweb-local:latest .</span><br><span class="line">docker run -d -p 58080:80 --restart always --name subweb subweb-local:latest</span><br></pre></td></tr></table></figure><p>此时前端项目也就构建完成并成功运行了。上述 <code>docker run</code> 命令将容器的 80 端口映射到了主机的 58080 端口。因此可以直接通过 IP+端口号 的形式来访问前端了，端口号为 58080。</p><p>注意，对于使用 IP地址+端口号 形式，如果无法访问前端项目，请检查在服务器提供商控制台检查相应的端口是否开启，前端的端口 58080。如果后端也采用 IP地址+端口号 的形式，也需要开启 25500 端口。</p>]]></content>
     
@@ -34,25 +34,25 @@
     
     
     
-    <category term="订阅" scheme="http://example.com/categories/%E8%AE%A2%E9%98%85/"/>
+    <category term="代理节点那些事" scheme="http://blog.happanetwork.com/categories/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    <category term="vps" scheme="http://blog.happanetwork.com/tags/vps/"/>
     
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="docker" scheme="http://blog.happanetwork.com/tags/docker/"/>
     
-    <category term="节点" scheme="http://example.com/tags/%E8%8A%82%E7%82%B9/"/>
+    <category term="节点" scheme="http://blog.happanetwork.com/tags/%E8%8A%82%E7%82%B9/"/>
     
-    <category term="订阅" scheme="http://example.com/tags/%E8%AE%A2%E9%98%85/"/>
+    <category term="订阅" scheme="http://blog.happanetwork.com/tags/%E8%AE%A2%E9%98%85/"/>
     
-    <category term="clash" scheme="http://example.com/tags/clash/"/>
+    <category term="clash" scheme="http://blog.happanetwork.com/tags/clash/"/>
     
   </entry>
   
   <entry>
     <title>代理节点那些事</title>
-    <link href="http://example.com/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    <id>http://example.com/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/</id>
+    <link href="http://blog.happanetwork.com/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>http://blog.happanetwork.com/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/</id>
     <published>2023-07-15T13:28:30.000Z</published>
     <updated>2023-07-15T13:28:30.532Z</updated>
     
@@ -64,8 +64,8 @@
   
   <entry>
     <title>Types.xcspec-not-found</title>
-    <link href="http://example.com/Types-xcspec-not-found/"/>
-    <id>http://example.com/Types-xcspec-not-found/</id>
+    <link href="http://blog.happanetwork.com/Types-xcspec-not-found/"/>
+    <id>http://blog.happanetwork.com/Types-xcspec-not-found/</id>
     <published>2023-07-03T05:34:42.000Z</published>
     <updated>2023-07-03T05:35:42.919Z</updated>
     
@@ -80,21 +80,21 @@
     
     
     
-    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
+    <category term="杂乱的教程" scheme="http://blog.happanetwork.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://blog.happanetwork.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Mac" scheme="http://example.com/tags/Mac/"/>
+    <category term="Mac" scheme="http://blog.happanetwork.com/tags/Mac/"/>
     
-    <category term="dpkg" scheme="http://example.com/tags/dpkg/"/>
+    <category term="dpkg" scheme="http://blog.happanetwork.com/tags/dpkg/"/>
     
   </entry>
   
   <entry>
     <title>Mac安装dpkg</title>
-    <link href="http://example.com/Mac%E5%AE%89%E8%A3%85dpkg/"/>
-    <id>http://example.com/Mac%E5%AE%89%E8%A3%85dpkg/</id>
+    <link href="http://blog.happanetwork.com/Mac%E5%AE%89%E8%A3%85dpkg/"/>
+    <id>http://blog.happanetwork.com/Mac%E5%AE%89%E8%A3%85dpkg/</id>
     <published>2023-07-01T14:08:56.000Z</published>
     <updated>2023-07-02T11:18:58.550Z</updated>
     
@@ -110,21 +110,21 @@
     
     
     
-    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
+    <category term="杂乱的教程" scheme="http://blog.happanetwork.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://blog.happanetwork.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Mac" scheme="http://example.com/tags/Mac/"/>
+    <category term="Mac" scheme="http://blog.happanetwork.com/tags/Mac/"/>
     
-    <category term="dpkg" scheme="http://example.com/tags/dpkg/"/>
+    <category term="dpkg" scheme="http://blog.happanetwork.com/tags/dpkg/"/>
     
   </entry>
   
   <entry>
     <title>使用青龙面板实现阿里云盘自动签到</title>
-    <link href="http://example.com/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/"/>
-    <id>http://example.com/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/</id>
+    <link href="http://blog.happanetwork.com/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/"/>
+    <id>http://blog.happanetwork.com/%E4%BD%BF%E7%94%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9E%E7%8E%B0%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/</id>
     <published>2023-03-06T01:35:24.000Z</published>
     <updated>2023-03-06T01:57:20.274Z</updated>
     
@@ -140,25 +140,25 @@
     
     
     
-    <category term="vps那些事" scheme="http://example.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <category term="vps那些事" scheme="http://blog.happanetwork.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    <category term="vps" scheme="http://blog.happanetwork.com/tags/vps/"/>
     
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="docker" scheme="http://blog.happanetwork.com/tags/docker/"/>
     
-    <category term="青龙面板" scheme="http://example.com/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    <category term="青龙面板" scheme="http://blog.happanetwork.com/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
     
-    <category term="阿里云盘" scheme="http://example.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/"/>
+    <category term="阿里云盘" scheme="http://blog.happanetwork.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/"/>
     
-    <category term="签到" scheme="http://example.com/tags/%E7%AD%BE%E5%88%B0/"/>
+    <category term="签到" scheme="http://blog.happanetwork.com/tags/%E7%AD%BE%E5%88%B0/"/>
     
   </entry>
   
   <entry>
     <title>安装青龙面板</title>
-    <link href="http://example.com/%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
-    <id>http://example.com/%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/</id>
+    <link href="http://blog.happanetwork.com/%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    <id>http://blog.happanetwork.com/%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/</id>
     <published>2023-03-06T01:01:13.000Z</published>
     <updated>2023-03-06T01:33:50.282Z</updated>
     
@@ -173,21 +173,21 @@
     
     
     
-    <category term="vps那些事" scheme="http://example.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <category term="vps那些事" scheme="http://blog.happanetwork.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    <category term="vps" scheme="http://blog.happanetwork.com/tags/vps/"/>
     
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="docker" scheme="http://blog.happanetwork.com/tags/docker/"/>
     
-    <category term="青龙面板" scheme="http://example.com/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    <category term="青龙面板" scheme="http://blog.happanetwork.com/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
     
   </entry>
   
   <entry>
     <title>安装docker容器</title>
-    <link href="http://example.com/%E5%AE%89%E8%A3%85docker%E5%AE%B9%E5%99%A8/"/>
-    <id>http://example.com/%E5%AE%89%E8%A3%85docker%E5%AE%B9%E5%99%A8/</id>
+    <link href="http://blog.happanetwork.com/%E5%AE%89%E8%A3%85docker%E5%AE%B9%E5%99%A8/"/>
+    <id>http://blog.happanetwork.com/%E5%AE%89%E8%A3%85docker%E5%AE%B9%E5%99%A8/</id>
     <published>2023-03-05T23:26:05.000Z</published>
     <updated>2023-03-05T23:52:39.177Z</updated>
     
@@ -201,19 +201,19 @@
     
     
     
-    <category term="vps那些事" scheme="http://example.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <category term="vps那些事" scheme="http://blog.happanetwork.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    <category term="vps" scheme="http://blog.happanetwork.com/tags/vps/"/>
     
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="docker" scheme="http://blog.happanetwork.com/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>VPS那些事</title>
-    <link href="http://example.com/VPS%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    <id>http://example.com/VPS%E9%82%A3%E4%BA%9B%E4%BA%8B/</id>
+    <link href="http://blog.happanetwork.com/VPS%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>http://blog.happanetwork.com/VPS%E9%82%A3%E4%BA%9B%E4%BA%8B/</id>
     <published>2023-03-05T23:25:21.000Z</published>
     <updated>2023-03-05T23:25:21.085Z</updated>
     
@@ -225,8 +225,8 @@
   
   <entry>
     <title>如何将节点添加到Clash</title>
-    <link href="http://example.com/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/"/>
-    <id>http://example.com/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/</id>
+    <link href="http://blog.happanetwork.com/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/"/>
+    <id>http://blog.happanetwork.com/%E5%A6%82%E4%BD%95%E5%B0%86%E8%8A%82%E7%82%B9%E6%B7%BB%E5%8A%A0%E5%88%B0Clash/</id>
     <published>2023-02-04T11:01:47.000Z</published>
     <updated>2023-02-04T11:07:56.596Z</updated>
     
@@ -241,19 +241,19 @@
     
     
     
-    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
+    <category term="杂乱的教程" scheme="http://blog.happanetwork.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://blog.happanetwork.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Clash" scheme="http://example.com/tags/Clash/"/>
+    <category term="Clash" scheme="http://blog.happanetwork.com/tags/Clash/"/>
     
   </entry>
   
   <entry>
     <title>将Mac设置为旁路网关实现硬件连接国际互联网</title>
-    <link href="http://example.com/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    <id>http://example.com/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/</id>
+    <link href="http://blog.happanetwork.com/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    <id>http://blog.happanetwork.com/%E5%B0%86Mac%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%97%81%E8%B7%AF%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5%E5%9B%BD%E9%99%85%E4%BA%92%E8%81%94%E7%BD%91/</id>
     <published>2023-01-28T05:09:55.000Z</published>
     <updated>2023-03-06T01:56:19.427Z</updated>
     
@@ -268,21 +268,21 @@
     
     
     
-    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
+    <category term="杂乱的教程" scheme="http://blog.happanetwork.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://blog.happanetwork.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Mac" scheme="http://example.com/tags/Mac/"/>
+    <category term="Mac" scheme="http://blog.happanetwork.com/tags/Mac/"/>
     
-    <category term="软路由" scheme="http://example.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
+    <category term="软路由" scheme="http://blog.happanetwork.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
     
   </entry>
   
   <entry>
     <title>创建iOS发布证书并配置文字和CallKit免后台推送权限</title>
-    <link href="http://example.com/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/"/>
-    <id>http://example.com/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/</id>
+    <link href="http://blog.happanetwork.com/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/"/>
+    <id>http://blog.happanetwork.com/%E5%88%9B%E5%BB%BAiOS%E5%8F%91%E5%B8%83%E8%AF%81%E4%B9%A6%E5%B9%B6%E9%85%8D%E7%BD%AE%E6%96%87%E5%AD%97%E5%92%8CCallKit%E5%85%8D%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81%E6%9D%83%E9%99%90/</id>
     <published>2022-12-29T02:54:32.000Z</published>
     <updated>2023-02-01T04:48:44.980Z</updated>
     
@@ -299,19 +299,19 @@
     
     
     
-    <category term="杂乱的教程" scheme="http://example.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
+    <category term="杂乱的教程" scheme="http://blog.happanetwork.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="iOS" scheme="http://example.com/tags/iOS/"/>
+    <category term="iOS" scheme="http://blog.happanetwork.com/tags/iOS/"/>
     
-    <category term="开发者" scheme="http://example.com/tags/%E5%BC%80%E5%8F%91%E8%80%85/"/>
+    <category term="开发者" scheme="http://blog.happanetwork.com/tags/%E5%BC%80%E5%8F%91%E8%80%85/"/>
     
   </entry>
   
   <entry>
     <title>macOS安装pip3</title>
-    <link href="http://example.com/macOS%E5%AE%89%E8%A3%85pip3/"/>
-    <id>http://example.com/macOS%E5%AE%89%E8%A3%85pip3/</id>
+    <link href="http://blog.happanetwork.com/macOS%E5%AE%89%E8%A3%85pip3/"/>
+    <id>http://blog.happanetwork.com/macOS%E5%AE%89%E8%A3%85pip3/</id>
     <published>2022-12-29T02:50:19.000Z</published>
     <updated>2022-12-29T02:52:51.561Z</updated>
     
@@ -330,8 +330,8 @@
   
   <entry>
     <title>Termius.app已损坏，无法打开您应该将它移到废纸篓</title>
-    <link href="http://example.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
-    <id>http://example.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
+    <link href="http://blog.happanetwork.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
+    <id>http://blog.happanetwork.com/Termius-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
     <published>2022-12-29T02:47:44.000Z</published>
     <updated>2023-02-01T05:02:44.628Z</updated>
     
@@ -350,8 +350,8 @@
   
   <entry>
     <title>旧版Xcode支持iOS16</title>
-    <link href="http://example.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/"/>
-    <id>http://example.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/</id>
+    <link href="http://blog.happanetwork.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/"/>
+    <id>http://blog.happanetwork.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/</id>
     <published>2022-12-28T10:32:11.000Z</published>
     <updated>2022-12-28T10:36:52.835Z</updated>
     
@@ -371,8 +371,8 @@
   
   <entry>
     <title>安装EasyDev</title>
-    <link href="http://example.com/%E5%AE%89%E8%A3%85EasyDev/"/>
-    <id>http://example.com/%E5%AE%89%E8%A3%85EasyDev/</id>
+    <link href="http://blog.happanetwork.com/%E5%AE%89%E8%A3%85EasyDev/"/>
+    <id>http://blog.happanetwork.com/%E5%AE%89%E8%A3%85EasyDev/</id>
     <published>2022-12-27T04:34:33.000Z</published>
     <updated>2022-12-27T04:36:02.303Z</updated>
     
@@ -391,8 +391,8 @@
   
   <entry>
     <title>安装MonkeyDev</title>
-    <link href="http://example.com/%E5%AE%89%E8%A3%85MonkeyDev/"/>
-    <id>http://example.com/%E5%AE%89%E8%A3%85MonkeyDev/</id>
+    <link href="http://blog.happanetwork.com/%E5%AE%89%E8%A3%85MonkeyDev/"/>
+    <id>http://blog.happanetwork.com/%E5%AE%89%E8%A3%85MonkeyDev/</id>
     <published>2022-12-27T04:31:56.000Z</published>
     <updated>2022-12-27T04:34:16.165Z</updated>
     
@@ -412,8 +412,8 @@
   
   <entry>
     <title>安装ldid</title>
-    <link href="http://example.com/%E5%AE%89%E8%A3%85ldid/"/>
-    <id>http://example.com/%E5%AE%89%E8%A3%85ldid/</id>
+    <link href="http://blog.happanetwork.com/%E5%AE%89%E8%A3%85ldid/"/>
+    <id>http://blog.happanetwork.com/%E5%AE%89%E8%A3%85ldid/</id>
     <published>2022-12-27T04:29:53.000Z</published>
     <updated>2022-12-27T04:31:20.105Z</updated>
     
@@ -432,8 +432,8 @@
   
   <entry>
     <title>theos的配置</title>
-    <link href="http://example.com/theos%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://example.com/theos%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
+    <link href="http://blog.happanetwork.com/theos%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://blog.happanetwork.com/theos%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
     <published>2022-12-27T04:27:17.000Z</published>
     <updated>2022-12-27T04:27:55.200Z</updated>
     
@@ -452,8 +452,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/hello-world/"/>
-    <id>http://example.com/hello-world/</id>
+    <link href="http://blog.happanetwork.com/hello-world/"/>
+    <id>http://blog.happanetwork.com/hello-world/</id>
     <published>2022-12-27T04:15:03.701Z</published>
     <updated>2022-12-31T09:07:50.840Z</updated>
     
