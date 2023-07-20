@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.happanetwork.com/%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8A%E9%83%A8%E7%BD%B2V2board%E5%B9%B6%E5%AF%B9%E6%8E%A5XrayR/</loc>
+    
+    <lastmod>2023-07-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.happanetwork.com/%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2023-07-19</lastmod>
@@ -308,6 +317,20 @@
   
   <url>
     <loc>http://blog.happanetwork.com/tags/clash/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happanetwork.com/tags/V2board/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.happanetwork.com/tags/XrayR/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -1,3 +1,4 @@
+http://blog.happanetwork.com/%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8A%E9%83%A8%E7%BD%B2V2board%E5%B9%B6%E5%AF%B9%E6%8E%A5XrayR/
 http://blog.happanetwork.com/%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E7%9A%84%E6%90%AD%E5%BB%BA/
 http://blog.happanetwork.com/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/
 http://blog.happanetwork.com/Types-xcspec-not-found/
@@ -36,6 +37,8 @@ http://blog.happanetwork.com/tags/dpkg/
 http://blog.happanetwork.com/tags/%E8%8A%82%E7%82%B9/
 http://blog.happanetwork.com/tags/%E8%AE%A2%E9%98%85/
 http://blog.happanetwork.com/tags/clash/
+http://blog.happanetwork.com/tags/V2board/
+http://blog.happanetwork.com/tags/XrayR/
 http://blog.happanetwork.com/categories/%E6%9D%82%E4%B9%B1%E7%9A%84%E6%95%99%E7%A8%8B/
 http://blog.happanetwork.com/categories/vps%E9%82%A3%E4%BA%9B%E4%BA%8B/
 http://blog.happanetwork.com/categories/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/

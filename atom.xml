@@ -6,7 +6,7 @@
   <link href="http://blog.happanetwork.com/atom.xml" rel="self"/>
   
   <link href="http://blog.happanetwork.com/"/>
-  <updated>2023-07-19T06:00:03.441Z</updated>
+  <updated>2023-07-20T04:09:09.497Z</updated>
   <id>http://blog.happanetwork.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在宝塔面板上部署V2board并对接XrayR</title>
+    <link href="http://blog.happanetwork.com/%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8A%E9%83%A8%E7%BD%B2V2board%E5%B9%B6%E5%AF%B9%E6%8E%A5XrayR/"/>
+    <id>http://blog.happanetwork.com/%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8A%E9%83%A8%E7%BD%B2V2board%E5%B9%B6%E5%AF%B9%E6%8E%A5XrayR/</id>
+    <published>2023-07-19T05:57:23.000Z</published>
+    <updated>2023-07-20T04:09:09.497Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-安装V2board"><a href="#1-安装V2board" class="headerlink" title="1. 安装V2board"></a>1. 安装V2board</h2><h3 id="1-先安装NMP"><a href="#1-先安装NMP" class="headerlink" title="1. 先安装NMP"></a>1. 先安装NMP</h3><p>☑️ Nginx<br>☑️ MySQL 5.6<br>☑️ PHP 7.4</p><h3 id="2-安装Redis、fileinfo"><a href="#2-安装Redis、fileinfo" class="headerlink" title="2. 安装Redis、fileinfo"></a>2. 安装Redis、fileinfo</h3><h4 id="1-软件商店-PHP7-4-设置"><a href="#1-软件商店-PHP7-4-设置" class="headerlink" title="1. 软件商店- PHP7.4-设置"></a>1. 软件商店- PHP7.4-设置</h4><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.2.1.png" alt="1.2.1"/></div><div class="image-meta"><span class="image-caption center">1.2.1</span></div></div><h4 id="2-安装Redis、fileinfo-1"><a href="#2-安装Redis、fileinfo-1" class="headerlink" title="2. 安装Redis、fileinfo"></a>2. 安装Redis、fileinfo</h4><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.2.2.png" alt="1.2.2"/></div><div class="image-meta"><span class="image-caption center">1.2.2</span></div></div><h3 id="3-解除被禁止的函数"><a href="#3-解除被禁止的函数" class="headerlink" title="3. 解除被禁止的函数"></a>3. 解除被禁止的函数</h3><p>将 <code>putenv</code> <code>proc_open</code> <code>pcntl_alarm</code> <code>pcntl_signal</code> 从列表中删除。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.3.png" alt="1.3"/></div><div class="image-meta"><span class="image-caption center">1.3</span></div></div><h3 id="4-添加站点"><a href="#4-添加站点" class="headerlink" title="4. 添加站点"></a>4. 添加站点</h3><h3 id="5-安装V2Board"><a href="#5-安装V2Board" class="headerlink" title="5. 安装V2Board"></a>5. 安装V2Board</h3><p>通过SSH登录到服务器后访问站点路径如：&#x2F;www&#x2F;wwwroot&#x2F;你的站点域名。</p><p>以下命令都需要在站点目录进行执行。</p><p>删除目录下文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chattr -i .user.ini</span><br><span class="line">rm -rf .htaccess 404.html index.html .user.ini</span><br></pre></td></tr></table></figure><p>执行命令从 Github 克隆到当前目录。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/v2board/v2board.git ./</span><br></pre></td></tr></table></figure><p>执行命令安装依赖包以及V2board</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh init.sh</span><br></pre></td></tr></table></figure><p>根据提示完成安装</p><h3 id="6-配置站点目录及伪静态"><a href="#6-配置站点目录及伪静态" class="headerlink" title="6.配置站点目录及伪静态"></a>6.配置站点目录及伪静态</h3><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.6.1.png" alt="1.6.1"/></div><div class="image-meta"><span class="image-caption center">1.6.1</span></div></div><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">location /downloads &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;  </span><br><span class="line">    try_files $uri $uri/ /index.php$is_args$query_string;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      1h;</span><br><span class="line">    error_log off;</span><br><span class="line">    access_log /dev/null; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.6.2.png" alt="1.6.2"/></div><div class="image-meta"><span class="image-caption center">1.6.2</span></div></div><h3 id="7-配置定时任务"><a href="#7-配置定时任务" class="headerlink" title="7.配置定时任务"></a>7.配置定时任务</h3><p>Cron</p><blockquote><p>在 Type of Task 选择 Shell Script<br>在 Name of Task 填写 v2board<br>在 Period 选择 N Minutes 1 Minute<br>在 Script content 填写 php &#x2F;www&#x2F;wwwroot&#x2F;路径&#x2F;artisan schedule:run</p></blockquote><p>根据上述信息添加每1分钟执行一次的定时任务。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.7.png" alt="1.7"/></div><div class="image-meta"><span class="image-caption center">1.7</span></div></div><h3 id="8-启动队列服务"><a href="#8-启动队列服务" class="headerlink" title="8.启动队列服务"></a>8.启动队列服务</h3><p>V2board的系统强依赖队列服务，正常使用V2Board必须启动队列服务。下面以宝塔中supervisor服务来守护队列服务作为演示。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.8.1.png" alt="1.8.1"/></div><div class="image-meta"><span class="image-caption center">1.8.1</span></div></div><blockquote><blockquote><p>软件商店Tools</p></blockquote></blockquote><p>找到Supervisor进行安装，安装完成后点击<code>设置 &gt; Add Daemon</code>按照如下填写</p><blockquote><p>在 Name 填写 V2board<br>在 Run User 选择 www<br>在 Run Dir 选择 站点目录 在 Start Command 填写 php artisan horizon 在 Processes 填写 1</p></blockquote><p>填写后点击Confirm添加即可运行。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.8.2.png" alt="1.8.2"/></div><div class="image-meta"><span class="image-caption center">1.8.2</span></div></div><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>Q：500错误<br>A：检查站点根目录权限，递归755，保证目录有可写文件的权限，也有可能是Redis扩展没有安装或者Redis没有按照造成的。你可以通过查看storage&#x2F;logs下的日志来排查错误或者开启debug模式、站点设置中关闭防跨站。</p><h2 id="2-安装xrayr"><a href="#2-安装xrayr" class="headerlink" title="2.安装xrayr"></a>2.安装xrayr</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-安装V2board&quot;&gt;&lt;a href=&quot;#1-安装V2board&quot; class=&quot;headerlink&quot; title=&quot;1. 安装V2board&quot;&gt;&lt;/a&gt;1. 安装V2board&lt;/h2&gt;&lt;h3 id=&quot;1-先安装NMP&quot;&gt;&lt;a href=&quot;#1-先安装NM</summary>
+      
+    
+    
+    
+    <category term="代理节点那些事" scheme="http://blog.happanetwork.com/categories/%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="vps" scheme="http://blog.happanetwork.com/tags/vps/"/>
+    
+    <category term="V2board" scheme="http://blog.happanetwork.com/tags/V2board/"/>
+    
+    <category term="XrayR" scheme="http://blog.happanetwork.com/tags/XrayR/"/>
+    
+  </entry>
   
   <entry>
     <title>订阅转换服务前端后端的搭建</title>
