@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang='zh'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>写给小白的节点搭建教程 - HappaBlog</title>
+
+  
+    <meta name="description" content="1.先购买一台境外VPS并使用ssh连接这边不做任何推荐 1  2.执行安装3X-UI命令1bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;mhsanaei&#x2F;3x-ui&#x2F;master&#x2F;install.sh)  2  1.y2.设置账号密码端口2.2  3.浏览器打开 IP:端口 进入登录界面如果打不开，请检查防火墙是否放行端口4.输入刚才设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写给小白的节点搭建教程">
+<meta property="og:url" content="http://blog.happanetwork.com/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="HappaBlog">
+<meta property="og:description" content="1.先购买一台境外VPS并使用ssh连接这边不做任何推荐 1  2.执行安装3X-UI命令1bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;mhsanaei&#x2F;3x-ui&#x2F;master&#x2F;install.sh)  2  1.y2.设置账号密码端口2.2  3.浏览器打开 IP:端口 进入登录界面如果打不开，请检查防火墙是否放行端口4.输入刚才设">
+<meta property="og:locale">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/1.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/2.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/2.2.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/4.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/5.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/7.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/7.1.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/8.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/8.2.1.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/8.2.4.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/8.2.6.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/8.8.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.2.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.4.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.5.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.6.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.7.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.9.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.10.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.12.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.13.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.14.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.15.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.16.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.17.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.18.1.png">
+<meta property="og:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/9.18.2.png">
+<meta property="article:published_time" content="2023-12-17T09:06:24.000Z">
+<meta property="article:modified_time" content="2023-12-17T11:12:50.112Z">
+<meta property="article:author" content="Happa">
+<meta property="article:tag" content="vps">
+<meta property="article:tag" content="节点">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.happanetwork.com/img/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/1.png">
+  
+  
+  
+  <meta name="keywords" content="vps,节点">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="HappaBlog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='代理节点那些事'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">HappaBlog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets"></div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%8A%82%E7%82%B9%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">写给小白的节点搭建教程</a></div></div>
+
+<article class='md-text content 代理节点那些事'>
+<h1 class="article-title"><span>写给小白的节点搭建教程</span></h1>
+<h2 id="1-先购买一台境外VPS并使用ssh连接"><a href="#1-先购买一台境外VPS并使用ssh连接" class="headerlink" title="1.先购买一台境外VPS并使用ssh连接"></a>1.先购买一台境外VPS并使用ssh连接</h2><p>这边不做任何推荐</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/1.png" alt="1"/></div><div class="image-meta"><span class="image-caption center">1</span></div></div>
+
+<h2 id="2-执行安装3X-UI命令"><a href="#2-执行安装3X-UI命令" class="headerlink" title="2.执行安装3X-UI命令"></a>2.执行安装3X-UI命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/2.png" alt="2"/></div><div class="image-meta"><span class="image-caption center">2</span></div></div>
+
+<h3 id="1-y"><a href="#1-y" class="headerlink" title="1.y"></a>1.y</h3><h3 id="2-设置账号密码端口"><a href="#2-设置账号密码端口" class="headerlink" title="2.设置账号密码端口"></a>2.设置账号密码端口</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/2.2.png" alt="2.2"/></div><div class="image-meta"><span class="image-caption center">2.2</span></div></div>
+
+<h2 id="3-浏览器打开-IP-端口-进入登录界面"><a href="#3-浏览器打开-IP-端口-进入登录界面" class="headerlink" title="3.浏览器打开 IP:端口 进入登录界面"></a>3.浏览器打开 IP:端口 进入登录界面</h2><h4 id="如果打不开，请检查防火墙是否放行端口"><a href="#如果打不开，请检查防火墙是否放行端口" class="headerlink" title="如果打不开，请检查防火墙是否放行端口"></a>如果打不开，请检查防火墙是否放行端口</h4><h2 id="4-输入刚才设置的账号密码登录"><a href="#4-输入刚才设置的账号密码登录" class="headerlink" title="4.输入刚才设置的账号密码登录"></a>4.输入刚才设置的账号密码登录</h2><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/4.png" alt="4"/></div><div class="image-meta"><span class="image-caption center">4</span></div></div>
+
+<h2 id="5-点击入站列表"><a href="#5-点击入站列表" class="headerlink" title="5.点击入站列表"></a>5.点击入站列表</h2><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/5.png" alt="5"/></div><div class="image-meta"><span class="image-caption center">5</span></div></div>
+
+<h2 id="6-添加入站"><a href="#6-添加入站" class="headerlink" title="6.添加入站"></a>6.添加入站</h2><h2 id="7-笔者这里演示创建一个ss节点"><a href="#7-笔者这里演示创建一个ss节点" class="headerlink" title="7.笔者这里演示创建一个ss节点"></a>7.笔者这里演示创建一个ss节点</h2><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/7.png" alt="7"/></div><div class="image-meta"><span class="image-caption center">7</span></div></div>
+
+<h3 id="1-点击最前方的小加号再点击小二维码会弹出一个大的二维码"><a href="#1-点击最前方的小加号再点击小二维码会弹出一个大的二维码" class="headerlink" title="1.点击最前方的小加号再点击小二维码会弹出一个大的二维码"></a>1.点击最前方的小加号再点击小二维码会弹出一个大的二维码</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/7.1.png" alt="7.1"/></div><div class="image-meta"><span class="image-caption center">7.1</span></div></div>
+
+<h3 id="2-点击这个大的二维码复制ss链接并添加入客户端"><a href="#2-点击这个大的二维码复制ss链接并添加入客户端" class="headerlink" title="2.点击这个大的二维码复制ss链接并添加入客户端"></a>2.点击这个大的二维码复制ss链接并添加入客户端</h3><p>当然这种协议是非常容易被墙的</p>
+<p>我们可以通过把连接地址改为VPS的IPv6地址解决</p>
+<h2 id="8-这个时候我们发现奈飞只支持自制剧"><a href="#8-这个时候我们发现奈飞只支持自制剧" class="headerlink" title="8.这个时候我们发现奈飞只支持自制剧"></a>8.这个时候我们发现奈飞只支持自制剧</h2><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/8.png" alt="8"/></div><div class="image-meta"><span class="image-caption center">8</span></div></div>
+
+<h3 id="我们如何让它支持非自制剧呢"><a href="#我们如何让它支持非自制剧呢" class="headerlink" title="我们如何让它支持非自制剧呢"></a>我们如何让它支持非自制剧呢</h3><h4 id="1-回到ssh界面"><a href="#1-回到ssh界面" class="headerlink" title="1.回到ssh界面"></a>1.回到ssh界面</h4><h4 id="2-执行安装warp"><a href="#2-执行安装warp" class="headerlink" title="2.执行安装warp"></a>2.执行安装warp</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence/url/token]</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-5"><a href="#1-5" class="headerlink" title="1. 5"></a>1. 5</h5><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/8.2.1.png" alt="8.2.1"/></div><div class="image-meta"><span class="image-caption center">8.2.1</span></div></div>
+
+<h4 id="2-它问我们要warp-的License"><a href="#2-它问我们要warp-的License" class="headerlink" title="2.它问我们要warp+的License"></a>2.它问我们要warp+的License</h4><p>我们可以在telegram 机器人 <a target="_blank" rel="noopener" href="https://t.me/generatewarpplusbot">https://t.me/generatewarpplusbot</a> 中搞一个</p>
+<p>3qJt0R47-16W3pmH7-6u1Tp4C8 </p>
+<h4 id="3-端口保持默认"><a href="#3-端口保持默认" class="headerlink" title="3.端口保持默认"></a>3.端口保持默认</h4><h4 id="4-执行-warp-i"><a href="#4-执行-warp-i" class="headerlink" title="4.执行 warp i"></a>4.执行 warp i</h4><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/8.2.4.png" alt="8.2.4"/></div><div class="image-meta"><span class="image-caption center">8.2.4</span></div></div>
+
+<h4 id="5-回到X-UI页面"><a href="#5-回到X-UI页面" class="headerlink" title="5.回到X-UI页面"></a>5.回到X-UI页面</h4><h4 id="6-点击Xray设置-WARP配置-将-Netflix-路由到-WARP"><a href="#6-点击Xray设置-WARP配置-将-Netflix-路由到-WARP" class="headerlink" title="6.点击Xray设置 WARP配置 将 Netflix 路由到 WARP"></a>6.点击Xray设置 WARP配置 将 Netflix 路由到 WARP</h4><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/8.2.6.png" alt="8.2.6"/></div><div class="image-meta"><span class="image-caption center">8.2.6</span></div></div>
+
+<h4 id="7-保存设置"><a href="#7-保存设置" class="headerlink" title="7.保存设置"></a>7.保存设置</h4><h4 id="8-重新启动Xray"><a href="#8-重新启动Xray" class="headerlink" title="8.重新启动Xray"></a>8.重新启动Xray</h4><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/8.8.png" alt="8.8"/></div><div class="image-meta"><span class="image-caption center">8.8</span></div></div>
+
+<h2 id="9-如果网络环境不支持IPv6-可以通过CDN的方式防止被墙"><a href="#9-如果网络环境不支持IPv6-可以通过CDN的方式防止被墙" class="headerlink" title="9.如果网络环境不支持IPv6 可以通过CDN的方式防止被墙"></a>9.如果网络环境不支持IPv6 可以通过CDN的方式防止被墙</h2><h3 id="1-回到入站列表"><a href="#1-回到入站列表" class="headerlink" title="1.回到入站列表"></a>1.回到入站列表</h3><h3 id="2-添加入站"><a href="#2-添加入站" class="headerlink" title="2.添加入站"></a>2.添加入站</h3><p>这个时候我们要创建一个vmess+ws的节点</p>
+<p>小路（path）可以随意填写</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.2.png" alt="9.2"/></div><div class="image-meta"><span class="image-caption center">9.2</span></div></div>
+
+<h3 id="3-将节点导入客户端备用"><a href="#3-将节点导入客户端备用" class="headerlink" title="3.将节点导入客户端备用"></a>3.将节点导入客户端备用</h3><h3 id="4-打开https-gcore-com-zh"><a href="#4-打开https-gcore-com-zh" class="headerlink" title="4.打开https://gcore.com/zh"></a>4.打开<a target="_blank" rel="noopener" href="https://gcore.com/zh">https://gcore.com/zh</a></h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.4.png" alt="9.4"/></div><div class="image-meta"><span class="image-caption center">9.4</span></div></div>
+
+<h3 id="5-注册一个账号"><a href="#5-注册一个账号" class="headerlink" title="5.注册一个账号"></a>5.注册一个账号</h3><p>验证邮箱</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.5.png" alt="9.5"/></div><div class="image-meta"><span class="image-caption center">9.5</span></div></div>
+
+<h3 id="6-我们已经进入到了仪表盘"><a href="#6-我们已经进入到了仪表盘" class="headerlink" title="6.我们已经进入到了仪表盘"></a>6.我们已经进入到了仪表盘</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.6.png" alt="9.6"/></div><div class="image-meta"><span class="image-caption center">9.6</span></div></div>
+
+<h3 id="7-点击CDN-选择Free计划"><a href="#7-点击CDN-选择Free计划" class="headerlink" title="7.点击CDN 选择Free计划"></a>7.点击CDN 选择Free计划</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.7.png" alt="9.7"/></div><div class="image-meta"><span class="image-caption center">9.7</span></div></div>
+
+<h3 id="8-随意填写地址"><a href="#8-随意填写地址" class="headerlink" title="8.随意填写地址"></a>8.随意填写地址</h3><h3 id="9-等待激活服务"><a href="#9-等待激活服务" class="headerlink" title="9.等待激活服务"></a>9.等待激活服务</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.9.png" alt="9.9"/></div><div class="image-meta"><span class="image-caption center">9.9</span></div></div>
+
+<h3 id="10-激活完成，我们进去到了CDN资源页面"><a href="#10-激活完成，我们进去到了CDN资源页面" class="headerlink" title="10.激活完成，我们进去到了CDN资源页面"></a>10.激活完成，我们进去到了CDN资源页面</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.10.png" alt="9.10"/></div><div class="image-meta"><span class="image-caption center">9.10</span></div></div>
+
+<h3 id="11-创建CDN资源"><a href="#11-创建CDN资源" class="headerlink" title="11.创建CDN资源"></a>11.创建CDN资源</h3><h3 id="12-可以填写一个不是自己的域名"><a href="#12-可以填写一个不是自己的域名" class="headerlink" title="12.可以填写一个不是自己的域名"></a>12.可以填写一个不是自己的域名</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.12.png" alt="9.12"/></div><div class="image-meta"><span class="image-caption center">9.12</span></div></div>
+
+<h3 id="13-添加DNS记录"><a href="#13-添加DNS记录" class="headerlink" title="13.添加DNS记录"></a>13.添加DNS记录</h3><p>IPv4地址填写VPS的IPv4地址</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.13.png" alt="9.13"/></div><div class="image-meta"><span class="image-caption center">9.13</span></div></div>
+
+<h3 id="14-它会要求我们修改名称服务器"><a href="#14-它会要求我们修改名称服务器" class="headerlink" title="14.它会要求我们修改名称服务器"></a>14.它会要求我们修改名称服务器</h3><p>因为域名不是我们的所以我们也修改不了</p>
+<p>直接点击确认</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.14.png" alt="9.14"/></div><div class="image-meta"><span class="image-caption center">9.14</span></div></div>
+
+<h3 id="15-来到资源设置页面"><a href="#15-来到资源设置页面" class="headerlink" title="15.来到资源设置页面"></a>15.来到资源设置页面</h3><p>点击左上角返回所有资源</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.15.png" alt="9.15"/></div><div class="image-meta"><span class="image-caption center">9.15</span></div></div>
+
+<h3 id="16-点击源组再点三个点-编辑"><a href="#16-点击源组再点三个点-编辑" class="headerlink" title="16.点击源组再点三个点 编辑"></a>16.点击源组再点三个点 编辑</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.16.png" alt="9.16"/></div><div class="image-meta"><span class="image-caption center">9.16</span></div></div>
+
+<h3 id="17-取消使用默认端口"><a href="#17-取消使用默认端口" class="headerlink" title="17.取消使用默认端口"></a>17.取消使用默认端口</h3><p>将节点端口填入</p>
+<p>保存更改</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.17.png" alt="9.17"/></div><div class="image-meta"><span class="image-caption center">9.17</span></div></div>
+
+<h3 id="18-将节点的连接地址改为gcore-com"><a href="#18-将节点的连接地址改为gcore-com" class="headerlink" title="18.将节点的连接地址改为gcore.com"></a>18.将节点的连接地址改为gcore.com</h3><p>端口改为80</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.18.1.png" alt="9.18.1"/></div><div class="image-meta"><span class="image-caption center">9.18.1</span></div></div>
+
+<p>host中将刚才设置的域名填入</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.happanetwork.com/img/写给小白的节点搭建教程/9.18.2.png" alt="9.18.2"/></div><div class="image-meta"><span class="image-caption center">9.18.2</span></div></div>
+
+
+
+
+<div class="article-footer reveal fs14"></div>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.19.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":true,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
