@@ -6,7 +6,7 @@
   <link href="http://blog.happanetwork.com/atom.xml" rel="self"/>
   
   <link href="http://blog.happanetwork.com/"/>
-  <updated>2023-12-17T11:12:50.112Z</updated>
+  <updated>2024-08-06T12:12:41.457Z</updated>
   <id>http://blog.happanetwork.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>带圈序号输出方法</title>
+    <link href="http://blog.happanetwork.com/%E5%B8%A6%E5%9C%88%E5%BA%8F%E5%8F%B7%E8%BE%93%E5%87%BA%E6%96%B9%E6%B3%95/"/>
+    <id>http://blog.happanetwork.com/%E5%B8%A6%E5%9C%88%E5%BA%8F%E5%8F%B7%E8%BE%93%E5%87%BA%E6%96%B9%E6%B3%95/</id>
+    <published>2024-08-06T12:00:16.000Z</published>
+    <updated>2024-08-06T12:12:41.457Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;pifont&#125;</span><br></pre></td></tr></table></figure><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\ding</span>&#123;172&#125;：圈1</span><br><span class="line"></span><br><span class="line"><span class="keyword">\ding</span>&#123;173&#125;：圈2</span><br><span class="line"></span><br><span class="line"><span class="keyword">\ding</span>&#123;174&#125;：圈3</span><br><span class="line"></span><br><span class="line"><span class="keyword">\ding</span>&#123;175&#125;：圈4</span><br><span class="line"></span><br><span class="line"><span class="keyword">\ding</span>&#123;176&#125;：圈5</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight latex&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla</summary>
+      
+    
+    
+    
+    <category term="LaTex" scheme="http://blog.happanetwork.com/categories/LaTex/"/>
+    
+    
+    <category term="LaTex" scheme="http://blog.happanetwork.com/tags/LaTex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LaTex</title>
+    <link href="http://blog.happanetwork.com/LaTex/"/>
+    <id>http://blog.happanetwork.com/LaTex/</id>
+    <published>2024-08-06T11:58:19.000Z</published>
+    <updated>2024-08-06T11:58:19.653Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>写给小白的节点搭建教程</title>
@@ -97,90 +134,13 @@
   </entry>
   
   <entry>
-    <title>OyamaHappa美容液</title>
-    <link href="http://blog.happanetwork.com/OyamaHappa%E7%BE%8E%E5%AE%B9%E6%B6%B2/"/>
-    <id>http://blog.happanetwork.com/OyamaHappa%E7%BE%8E%E5%AE%B9%E6%B6%B2/</id>
-    <published>2023-08-12T04:00:00.000Z</published>
-    <updated>2023-08-11T14:33:10.843Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="OyamaHappa美容液第0版-lt-理想版-gt"><a href="#OyamaHappa美容液第0版-lt-理想版-gt" class="headerlink" title="OyamaHappa美容液第0版&lt;理想版&gt;"></a>OyamaHappa美容液第0版&lt;理想版&gt;</h2><h3 id="制作流程"><a href="#制作流程" class="headerlink" title="制作流程"></a>制作流程</h3><p>1.准备大半瓶保湿乳</p><p>2.加入2%的熊果苷</p><p>3.加入3%-5%的烟酰胺</p><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1.熊果苷和烟酰胺浓度不能过高，会肝衰</p><p>2.制作完成后请使用ph仪测量整个体系的ph值，若酸，则烟酰胺会分解</p><p>3.熊果苷需要避光，不能白天使用</p><h2 id="本文最后修改时间-20230811185422"><a href="#本文最后修改时间-20230811185422" class="headerlink" title="本文最后修改时间-20230811185422"></a><em><strong>本文最后修改时间-20230811185422</strong></em></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;OyamaHappa美容液第0版-lt-理想版-gt&quot;&gt;&lt;a href=&quot;#OyamaHappa美容液第0版-lt-理想版-gt&quot; class=&quot;headerlink&quot; title=&quot;OyamaHappa美容液第0版&amp;lt;理想版&amp;gt;&quot;&gt;&lt;/a&gt;OyamaHa</summary>
-      
-    
-    
-    
-    <category term="Happa的跨性别之旅" scheme="http://blog.happanetwork.com/categories/Happa%E7%9A%84%E8%B7%A8%E6%80%A7%E5%88%AB%E4%B9%8B%E6%97%85/"/>
-    
-    
-    <category term="自制药" scheme="http://blog.happanetwork.com/tags/%E8%87%AA%E5%88%B6%E8%8D%AF/"/>
-    
-    <category term="烟酰胺" scheme="http://blog.happanetwork.com/tags/%E7%83%9F%E9%85%B0%E8%83%BA/"/>
-    
-    <category term="美白" scheme="http://blog.happanetwork.com/tags/%E7%BE%8E%E7%99%BD/"/>
-    
-    <category term="护肤品" scheme="http://blog.happanetwork.com/tags/%E6%8A%A4%E8%82%A4%E5%93%81/"/>
-    
-    <category term="熊果苷" scheme="http://blog.happanetwork.com/tags/%E7%86%8A%E6%9E%9C%E8%8B%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OyamaHappa雌二醇酒精凝胶</title>
-    <link href="http://blog.happanetwork.com/OyamaHappa%E9%9B%8C%E4%BA%8C%E9%86%87%E9%85%92%E7%B2%BE%E5%87%9D%E8%83%B6/"/>
-    <id>http://blog.happanetwork.com/OyamaHappa%E9%9B%8C%E4%BA%8C%E9%86%87%E9%85%92%E7%B2%BE%E5%87%9D%E8%83%B6/</id>
-    <published>2023-08-11T05:54:44.000Z</published>
-    <updated>2023-08-12T12:07:46.926Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="OyamaHappa雌二醇酒精凝胶第一版（demo）"><a href="#OyamaHappa雌二醇酒精凝胶第一版（demo）" class="headerlink" title="OyamaHappa雌二醇酒精凝胶第一版（demo）"></a>OyamaHappa雌二醇酒精凝胶第一版（demo）</h2><h3 id="原料"><a href="#原料" class="headerlink" title="原料"></a>原料</h3><p>雌二醇、酒精、免洗洗手液、氮酮</p><h3 id="制作过程"><a href="#制作过程" class="headerlink" title="制作过程"></a>制作过程</h3><p>1.happa在一个洗净的瓶子内倒入大半瓶免洗洗洗手液</p><p>2.happa将1g雌二醇原料倒入瓶中并搅拌</p><p>3.瓶内变为悬浊液状</p><p>4.happa为了补救又往瓶内倒入少量酒精并搅拌直至溶解</p><p>5.happa将约15g氮酮倒入瓶中搅拌</p><p>6.最后的成品出现了有小部分雌二醇未溶解的情况，表现为一小白点，但比雌二醇粉末大</p><h3 id="实际体验-以身试毒"><a href="#实际体验-以身试毒" class="headerlink" title="实际体验[以身试毒]"></a>实际体验[以身试毒]</h3><p>1.胸在两三天内快速变大</p><p>2.乳头超级痛</p><p>3.发情特别严重</p><h3 id="注意事项（吸取经验"><a href="#注意事项（吸取经验" class="headerlink" title="注意事项（吸取经验"></a>注意事项（吸取经验</h3><p>1.应先将雌二醇溶解于酒精再添加卡波姆并静置</p><p>2.雌二醇浓度不宜过高</p><p>3.建议将整个体系用ph仪测量ph值</p><p>4.氮酮含量建议为5%</p><p>5.雌二醇浓度建议为4%左右</p><h2 id="OyamaHappa雌二醇酒精凝胶下一版-lt-准备尝试-gt"><a href="#OyamaHappa雌二醇酒精凝胶下一版-lt-准备尝试-gt" class="headerlink" title="OyamaHappa雌二醇酒精凝胶下一版&lt;准备尝试&gt;"></a>OyamaHappa雌二醇酒精凝胶下一版&lt;准备尝试&gt;</h2><p>1.先将雌二醇溶解于酒精中</p><p>2.倒入免洗洗手液（因为happa没有静置的条件）</p><p>3.倒入氮酮，搅拌</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/OyamaHappa雌二醇酒精凝胶/1.png" alt="1"/></div><div class="image-meta"><span class="image-caption center">1</span></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/OyamaHappa雌二醇酒精凝胶/2.png" alt="2"/></div><div class="image-meta"><span class="image-caption center">2</span></div></div><h2 id="本文最后修改时间-20230812200739"><a href="#本文最后修改时间-20230812200739" class="headerlink" title="本文最后修改时间-20230812200739"></a><em><strong>本文最后修改时间-20230812200739</strong></em></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;OyamaHappa雌二醇酒精凝胶第一版（demo）&quot;&gt;&lt;a href=&quot;#OyamaHappa雌二醇酒精凝胶第一版（demo）&quot; class=&quot;headerlink&quot; title=&quot;OyamaHappa雌二醇酒精凝胶第一版（demo）&quot;&gt;&lt;/a&gt;OyamaHap</summary>
-      
-    
-    
-    
-    <category term="Happa的跨性别之旅" scheme="http://blog.happanetwork.com/categories/Happa%E7%9A%84%E8%B7%A8%E6%80%A7%E5%88%AB%E4%B9%8B%E6%97%85/"/>
-    
-    
-    <category term="跨性别" scheme="http://blog.happanetwork.com/tags/%E8%B7%A8%E6%80%A7%E5%88%AB/"/>
-    
-    <category term="凝胶" scheme="http://blog.happanetwork.com/tags/%E5%87%9D%E8%83%B6/"/>
-    
-    <category term="MtF" scheme="http://blog.happanetwork.com/tags/MtF/"/>
-    
-    <category term="雌二醇" scheme="http://blog.happanetwork.com/tags/%E9%9B%8C%E4%BA%8C%E9%86%87/"/>
-    
-    <category term="自制药" scheme="http://blog.happanetwork.com/tags/%E8%87%AA%E5%88%B6%E8%8D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Happa的跨性别之旅</title>
-    <link href="http://blog.happanetwork.com/Happa%E7%9A%84%E8%B7%A8%E6%80%A7%E5%88%AB%E4%B9%8B%E6%97%85/"/>
-    <id>http://blog.happanetwork.com/Happa%E7%9A%84%E8%B7%A8%E6%80%A7%E5%88%AB%E4%B9%8B%E6%97%85/</id>
-    <published>2023-08-11T05:50:54.000Z</published>
-    <updated>2023-08-11T05:50:54.462Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>在宝塔面板上部署V2board并对接XrayR</title>
     <link href="http://blog.happanetwork.com/%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8A%E9%83%A8%E7%BD%B2V2board%E5%B9%B6%E5%AF%B9%E6%8E%A5XrayR/"/>
     <id>http://blog.happanetwork.com/%E5%9C%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8A%E9%83%A8%E7%BD%B2V2board%E5%B9%B6%E5%AF%B9%E6%8E%A5XrayR/</id>
     <published>2023-07-19T05:57:23.000Z</published>
-    <updated>2023-08-20T00:11:16.548Z</updated>
+    <updated>2023-12-18T04:26:57.798Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-安装V2board"><a href="#1-安装V2board" class="headerlink" title="1. 安装V2board"></a>1. 安装V2board</h2><h3 id="1-先安装NMP"><a href="#1-先安装NMP" class="headerlink" title="1. 先安装NMP"></a>1. 先安装NMP</h3><p>☑️ Nginx<br>☑️ MySQL 5.6<br>☑️ PHP 7.4</p><h3 id="2-安装Redis、fileinfo"><a href="#2-安装Redis、fileinfo" class="headerlink" title="2. 安装Redis、fileinfo"></a>2. 安装Redis、fileinfo</h3><h4 id="1-软件商店-PHP7-4-设置"><a href="#1-软件商店-PHP7-4-设置" class="headerlink" title="1. 软件商店- PHP7.4-设置"></a>1. 软件商店- PHP7.4-设置</h4><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.2.1.png" alt="1.2.1"/></div><div class="image-meta"><span class="image-caption center">1.2.1</span></div></div><h4 id="2-安装Redis、fileinfo-1"><a href="#2-安装Redis、fileinfo-1" class="headerlink" title="2. 安装Redis、fileinfo"></a>2. 安装Redis、fileinfo</h4><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.2.2.png" alt="1.2.2"/></div><div class="image-meta"><span class="image-caption center">1.2.2</span></div></div><h3 id="3-解除被禁止的函数"><a href="#3-解除被禁止的函数" class="headerlink" title="3. 解除被禁止的函数"></a>3. 解除被禁止的函数</h3><p>将 <code>putenv</code> <code>proc_open</code> <code>pcntl_alarm</code> <code>pcntl_signal</code> 从列表中删除。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.3.png" alt="1.3"/></div><div class="image-meta"><span class="image-caption center">1.3</span></div></div><h3 id="4-添加站点"><a href="#4-添加站点" class="headerlink" title="4. 添加站点"></a>4. 添加站点</h3><h3 id="5-安装V2Board"><a href="#5-安装V2Board" class="headerlink" title="5. 安装V2Board"></a>5. 安装V2Board</h3><p>通过SSH登录到服务器后访问站点路径如：&#x2F;www&#x2F;wwwroot&#x2F;你的站点域名。</p><p>以下命令都需要在站点目录进行执行。</p><p>删除目录下文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chattr -i .user.ini</span><br><span class="line">rm -rf .htaccess 404.html index.html .user.ini</span><br></pre></td></tr></table></figure><p>执行命令从 Github 克隆到当前目录。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/v2board/v2board.git ./</span><br></pre></td></tr></table></figure><p>执行命令安装依赖包以及V2board</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh init.sh</span><br></pre></td></tr></table></figure><p>根据提示完成安装</p><h3 id="6-配置站点目录及伪静态"><a href="#6-配置站点目录及伪静态" class="headerlink" title="6.配置站点目录及伪静态"></a>6.配置站点目录及伪静态</h3><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.6.1.png" alt="1.6.1"/></div><div class="image-meta"><span class="image-caption center">1.6.1</span></div></div><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">location /downloads &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;  </span><br><span class="line">    try_files $uri $uri/ /index.php$is_args$query_string;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      1h;</span><br><span class="line">    error_log off;</span><br><span class="line">    access_log /dev/null; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.6.2.png" alt="1.6.2"/></div><div class="image-meta"><span class="image-caption center">1.6.2</span></div></div><h3 id="7-配置定时任务"><a href="#7-配置定时任务" class="headerlink" title="7.配置定时任务"></a>7.配置定时任务</h3><p>Cron</p><blockquote><p>在 Type of Task 选择 Shell Script<br>在 Name of Task 填写 v2board<br>在 Period 选择 N Minutes 1 Minute<br>在 Script content 填写 php &#x2F;www&#x2F;wwwroot&#x2F;路径&#x2F;artisan schedule:run</p></blockquote><p>根据上述信息添加每1分钟执行一次的定时任务。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.7.png" alt="1.7"/></div><div class="image-meta"><span class="image-caption center">1.7</span></div></div><h3 id="8-启动队列服务"><a href="#8-启动队列服务" class="headerlink" title="8.启动队列服务"></a>8.启动队列服务</h3><p>V2board的系统强依赖队列服务，正常使用V2Board必须启动队列服务。下面以宝塔中supervisor服务来守护队列服务作为演示。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.8.1.png" alt="1.8.1"/></div><div class="image-meta"><span class="image-caption center">1.8.1</span></div></div><blockquote><p>软件商店Tools</p></blockquote><p>找到Supervisor进行安装，安装完成后点击<code>设置 &gt; Add Daemon</code>按照如下填写</p><blockquote><p>在 Name 填写 V2board<br>在 Run User 选择 www<br>在 Run Dir 选择 站点目录 在 Start Command 填写 php artisan horizon 在 Processes 填写 1</p></blockquote><p>填写后点击Confirm添加即可运行。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happaa.com/img/在宝塔面板上部署V2board并对接XrayR/1.8.2.png" alt="1.8.2"/></div><div class="image-meta"><span class="image-caption center">1.8.2</span></div></div><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>Q：500错误<br>A：检查站点根目录权限，递归755，保证目录有可写文件的权限，也有可能是Redis扩展没有安装或者Redis没有按照造成的。你可以通过查看storage&#x2F;logs下的日志来排查错误或者开启debug模式、站点设置中关闭防跨站。</p><h2 id="2-安装xrayr"><a href="#2-安装xrayr" class="headerlink" title="2.安装xrayr"></a>2.安装xrayr</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/xrayr &amp;&amp; cd /opt/xrayr</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/XrayR-project/XrayR/releases/download/v0.9.0/XrayR-linux-64.zip</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip XrayR-linux-64.zip</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;path&quot;: &quot;/index&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-安装V2board"><a href="#1-安装V2board" class="headerlink" title="1. 安装V2board"></a>1. 安装V2board</h2><h3 id="1-先安装NMP"><a href="#1-先安装NMP" class="headerlink" title="1. 先安装NMP"></a>1. 先安装NMP</h3><p>☑️ Nginx<br>☑️ MySQL 5.6<br>☑️ PHP 7.4</p><h3 id="2-安装Redis、fileinfo"><a href="#2-安装Redis、fileinfo" class="headerlink" title="2. 安装Redis、fileinfo"></a>2. 安装Redis、fileinfo</h3><h4 id="1-软件商店-PHP7-4-设置"><a href="#1-软件商店-PHP7-4-设置" class="headerlink" title="1. 软件商店- PHP7.4-设置"></a>1. 软件商店- PHP7.4-设置</h4><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.2.1.png" alt="1.2.1"/></div><div class="image-meta"><span class="image-caption center">1.2.1</span></div></div><h4 id="2-安装Redis、fileinfo-1"><a href="#2-安装Redis、fileinfo-1" class="headerlink" title="2. 安装Redis、fileinfo"></a>2. 安装Redis、fileinfo</h4><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.2.2.png" alt="1.2.2"/></div><div class="image-meta"><span class="image-caption center">1.2.2</span></div></div><h3 id="3-解除被禁止的函数"><a href="#3-解除被禁止的函数" class="headerlink" title="3. 解除被禁止的函数"></a>3. 解除被禁止的函数</h3><p>将 <code>putenv</code> <code>proc_open</code> <code>pcntl_alarm</code> <code>pcntl_signal</code> 从列表中删除。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.3.png" alt="1.3"/></div><div class="image-meta"><span class="image-caption center">1.3</span></div></div><h3 id="4-添加站点"><a href="#4-添加站点" class="headerlink" title="4. 添加站点"></a>4. 添加站点</h3><h3 id="5-安装V2Board"><a href="#5-安装V2Board" class="headerlink" title="5. 安装V2Board"></a>5. 安装V2Board</h3><p>通过SSH登录到服务器后访问站点路径如：&#x2F;www&#x2F;wwwroot&#x2F;你的站点域名。</p><p>以下命令都需要在站点目录进行执行。</p><p>删除目录下文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chattr -i .user.ini</span><br><span class="line">rm -rf .htaccess 404.html index.html .user.ini</span><br></pre></td></tr></table></figure><p>执行命令从 Github 克隆到当前目录。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/v2board/v2board.git ./</span><br></pre></td></tr></table></figure><p>执行命令安装依赖包以及V2board</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh init.sh</span><br></pre></td></tr></table></figure><p>根据提示完成安装</p><h3 id="6-配置站点目录及伪静态"><a href="#6-配置站点目录及伪静态" class="headerlink" title="6.配置站点目录及伪静态"></a>6.配置站点目录及伪静态</h3><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.6.1.png" alt="1.6.1"/></div><div class="image-meta"><span class="image-caption center">1.6.1</span></div></div><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">location /downloads &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;  </span><br><span class="line">    try_files $uri $uri/ /index.php$is_args$query_string;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      1h;</span><br><span class="line">    error_log off;</span><br><span class="line">    access_log /dev/null; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.6.2.png" alt="1.6.2"/></div><div class="image-meta"><span class="image-caption center">1.6.2</span></div></div><h3 id="7-配置定时任务"><a href="#7-配置定时任务" class="headerlink" title="7.配置定时任务"></a>7.配置定时任务</h3><p>Cron</p><blockquote><p>在 Type of Task 选择 Shell Script<br>在 Name of Task 填写 v2board<br>在 Period 选择 N Minutes 1 Minute<br>在 Script content 填写 php &#x2F;www&#x2F;wwwroot&#x2F;路径&#x2F;artisan schedule:run</p></blockquote><p>根据上述信息添加每1分钟执行一次的定时任务。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.7.png" alt="1.7"/></div><div class="image-meta"><span class="image-caption center">1.7</span></div></div><h3 id="8-启动队列服务"><a href="#8-启动队列服务" class="headerlink" title="8.启动队列服务"></a>8.启动队列服务</h3><p>V2board的系统强依赖队列服务，正常使用V2Board必须启动队列服务。下面以宝塔中supervisor服务来守护队列服务作为演示。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.8.1.png" alt="1.8.1"/></div><div class="image-meta"><span class="image-caption center">1.8.1</span></div></div><blockquote><p>软件商店Tools</p></blockquote><p>找到Supervisor进行安装，安装完成后点击<code>设置 &gt; Add Daemon</code>按照如下填写</p><blockquote><p>在 Name 填写 V2board<br>在 Run User 选择 www<br>在 Run Dir 选择 站点目录 在 Start Command 填写 php artisan horizon 在 Processes 填写 1</p></blockquote><p>填写后点击Confirm添加即可运行。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://blog.happanetwork.com/img/在宝塔面板上部署V2board并对接XrayR/1.8.2.png" alt="1.8.2"/></div><div class="image-meta"><span class="image-caption center">1.8.2</span></div></div><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>Q：500错误<br>A：检查站点根目录权限，递归755，保证目录有可写文件的权限，也有可能是Redis扩展没有安装或者Redis没有按照造成的。你可以通过查看storage&#x2F;logs下的日志来排查错误或者开启debug模式、站点设置中关闭防跨站。</p><h2 id="2-安装xrayr"><a href="#2-安装xrayr" class="headerlink" title="2.安装xrayr"></a>2.安装xrayr</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/xrayr &amp;&amp; cd /opt/xrayr</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/XrayR-project/XrayR/releases/download/v0.9.0/XrayR-linux-64.zip</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip XrayR-linux-64.zip</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;path&quot;: &quot;/index&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -526,6 +486,27 @@
       
       
     <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>旧版Xcode支持iOS16</title>
+    <link href="http://blog.happanetwork.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/"/>
+    <id>http://blog.happanetwork.com/%E6%97%A7%E7%89%88Xcode%E6%94%AF%E6%8C%81iOS16/</id>
+    <published>2022-12-28T10:32:11.000Z</published>
+    <updated>2022-12-28T10:36:52.835Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/RayJiang16/iOSDeviceSupport">https://github.com/RayJiang16/iOSDeviceSupport</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O https://github.com/RayJiang16/iOSDeviceSupport/raw/main/download.sh</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh download.sh 16.0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/RayJiang16/iOSDeviceSupport&quot;&gt;https://github.com/RayJiang16/iOSDeviceSupport&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight </summary>
       
     
     
